@@ -9,7 +9,7 @@ public class mnister {
         // Read file
         ArrayList<String[]> images = null;
         try {
-            images = ReadFromFile("/home/serpial/Documents/twotwelvetasktwo/test-10.txt");
+            images = ReadFromFile("/home/serpial/Documents/machinelearning/Lab2/test-10.txt");
         } catch (Exception e) {
             System.out.println(e);
         }
