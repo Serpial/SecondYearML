@@ -5,15 +5,21 @@ import java.lang.Exception;
 import java.util.ArrayList;
 
 public class mnister {
+
+    private static final int IMAGE_SIZE = 28;
+    
     public static void main (String args[]) {
         // Read file
         ArrayList<String[]> images = null;
         try {
-            images = ReadFromFile("/home/serpial/Documents/twotwelvetasktwo/test-10.txt");
+            images = ReadFromFile("/home/serpial/Documents/machinelearning/Lab2/test-10.txt");
         } catch (Exception e) {
             System.out.println(e);
         }
 
+        
+
+        
         for (int i=0; i<images.size();i++) {
             makeAstrisky(images.get(i));
         }
@@ -47,18 +53,19 @@ public class mnister {
             allLines.add(tempStr);
             tempStr = br.readLine();
         }
-
+        
         char currentNum = allLines.get(0).charAt(0);
 
-        String theNumber[] = new String[28];
+        String theNumber[] = new String[IMAGE_SIZE];
         for (int i=0; i<allLines.size(); i++) {
             if (allLines.get(i).charAt(0) != currentNum) {
                 currentNum = allLines.get(i).charAt(0);
                 numbers.add(theNumber);
-                theNumber = new String[28];
+                theNumber = new String[IMAGE_SIZE];
             }
-            theNumber[i%28] = allLines.get(i);
+            theNumber[i%IMAGE_SIZE] = allLines.get(i);
         }
+        numbers.add(theNumber);
         return numbers;
     }
 }
